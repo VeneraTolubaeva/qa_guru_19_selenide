@@ -21,13 +21,9 @@ public class JUnit5Test {
         $("#wiki-tab").click();
         // Убедитесь, что в списке страниц (Pages) есть страница SoftAssertions
         $(byText("Show 2 more pages…")).click();
-        $("li:nth-child(17) details summary div span a").shouldHave(text("SoftAssertions"));
+        $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
         //Откройте страницу SoftAssertions, проверьте что внутри есть пример кода для JUnit5
-        $("li:nth-child(17) details summary div span a").click();
-        $("div.markdown-body h4").sibling(5).shouldHave(text("3. Using JUnit5 extend test class:"));
-        //$("div.markdown-body").$("h4").sibling(5).shouldHave(text("3. Using JUnit5 extend test class:"));
+        $("#wiki-pages-box").$("a[href^=\"/selenide/selenide/wiki/SoftAssertions\"]").click();
+        $(".markdown-body").shouldHave(text("3. Using JUnit5 extend test class:"));
     }
-
-    //Есть ли разница между $("h1 div"); и $("h1").$("div"); - может ли привести к тому что, поиск найдёт разные элементы?
-    //Если может - приведите пример, когда.
 }
