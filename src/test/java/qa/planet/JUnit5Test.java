@@ -1,6 +1,5 @@
 package qa.planet;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -8,12 +7,9 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class JUnit5Test {
+public class JUnit5Test extends Config{
     @Test
     public void CodeForJUnit5() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 5000;
 
         // Откройте страницу Selenide в Github
         open("https://github.com/selenide/selenide");
